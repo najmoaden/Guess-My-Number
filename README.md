@@ -1,2 +1,2 @@
-# 5-Guess-My-Number
+# Guess-My-Number
  Jonas Schemdtmann Javascript Course
