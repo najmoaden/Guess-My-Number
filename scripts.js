@@ -14,8 +14,9 @@ console.log(document.querySelector('.guess').value);
 */
 
 // Implementing the Game Logic
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = secretNumber;
+
+//Getting a random number between 1 and 20 and reassigning it to the secretNumber variable
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 
@@ -30,6 +31,7 @@ document.querySelector('.check').addEventListener('click', function () {
     //When the guess is correct
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
+    document.querySelector('.number').textContent = secretNumber;
 
     //Manipulating CSS Styles
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -55,4 +57,30 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = '💥 You lost the game!';
     }
   }
+});
+/////////////////////
+// Coding Challenge #1
+/*
+Implement a game rest functionality, so that the player can make a new guess! Here is how:
+
+1.Select the element with the class 'again' and attach a click event handler to it.
+2.Inside the handler, restore initial values of the score and number variables.
+3.Restore the initial conditions of the message, number, score and guess input fields.
+4.Also restore the original background color (#222) and number width (15rem).
+*/
+
+document.querySelector('.again').addEventListener('click', function () {
+  //Restoring initial values
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  //Restoring initial conditions
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+
+  //Restoring original background color and number width
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
